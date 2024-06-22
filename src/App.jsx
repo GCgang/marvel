@@ -1,23 +1,23 @@
 import "./styles.css";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Root from './pages/Root/Root';
-import Home from './pages/Home';
-import CharacterDetails from './pages/CharacterDetails';
-import NotFound from './pages/NotFound';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./pages/Root/Root";
+import Home from "./pages/Home/Home";
+import CharacterDetails from "./pages/CharacterDetails";
+import NotFound from "./pages/NotFound";
 
-const router = createBrowserRouter ([
+const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Root />,
     children: [
       {
-        path: '/',
-        element: <Home />
+        path: "/",
+        element: <Home />,
       },
       {
-        path: 'details/:id',
-        element: <CharacterDetails />
-      }
+        path: "details/:id",
+        element: <CharacterDetails />,
+      },
     ],
     errorElement: <NotFound />,
   },
