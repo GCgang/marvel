@@ -19,6 +19,15 @@
   transform: scale(1.05);
 }
 
+.character-card__link {
+  text-decoration: none;
+  color: inherit; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
 .character-card img {
   border-radius: 10px;
   width: 100%;
