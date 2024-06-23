@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function CharacterCard({ id, thumbnail, name }) {
   return (
     <div className={styles["character-card"]}>
-      <Link to={`/details/${id}`} className={styles["character-card__link"]}>
+      <Link to={`/character/${id}`} className={styles["character-card__link"]}>
         <img
           className={styles["character-card__img"]}
           src={thumbnail}
