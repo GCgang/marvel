@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
 import useFetchCharacters from "../../hooks/useFetchCharacters";
-import { Link } from "react-router-dom";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import styles from "./Home.module.css";
+import filterCharactersWithImages from '../../utils/filterCharactersWithImages';
+
 export default function Home() {
   const { loading, error, characters } = useFetchCharacters();
   if (loading) {
@@ -11,12 +11,15 @@ export default function Home() {
   if (error) {
     return <div>Error: {error}</div>;
   }
+  const charactersWithImages = filterCharactersWithImages(characters);
+  
   return (
     <div>
       <ul className={styles["cards-container"]}>
-        {characters?.map((character) => (
+        {charactersWithImages?.map((character) => (
           <li key={character?.id}>
             <CharacterCard
+              id={character.id}
               thumbnail={`${character.thumbnail.path}/portrait_xlarge.jpg`}
               name={character?.name}
             />
