@@ -91,7 +91,7 @@ export default function useFetchCharacterData(id) {
     };
 
     fetchCharacterData();
-  }, [id]);
+  }, [id, navigate]);
   
   return {loading, characterData};
 }

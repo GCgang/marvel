@@ -7,24 +7,23 @@ export default function useFetchCharacters() {
   const [characters, setCharacters] = useState([]);
   const navigate = useNavigate();
 
-  const fetchCharacters = async () => {
-    try {
-      const response = await fetch(getCharactersListUrl());
-      if (!response?.ok) {
-        throw new Error(`Error: getCharactersListUrl() status: ${response.status}`);
-      }
-      const json = await response.json();
-      setCharacters(json.data.results);
-    } catch (err) {
-      navigate('/not-found', { state: { error: err.message } });
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchCharacters = async () => {
+      try {
+        const response = await fetch(getCharactersListUrl());
+        if (!response?.ok) {
+          throw new Error(`Error: getCharactersListUrl() status: ${response.status}`);
+        }
+        const json = await response.json();
+        setCharacters(json.data.results);
+      } catch (err) {
+        navigate('/not-found', { state: { error: err.message } });
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchCharacters();
-  }, []);
+  }, [navigate]);
 
   return { loading, characters };
 }
