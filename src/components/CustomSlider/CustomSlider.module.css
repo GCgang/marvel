@@ -1,0 +1,53 @@
+.sliderContainer {
+  margin: 20px 20px;
+  position: relative;
+}
+
+.slide {
+  text-align: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+h2 {
+  font-size: 2.0rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.slide h5 {
+  font-size: 1rem;
+  color: black;
+}
+
+.nextArrow, .prevArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  cursor: pointer;
+  font-size: 3rem;
+  color: #202020;
+  background: rgba(0, 0, 0, 0.5); 
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.nextArrow:hover, .prevArrow:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.nextArrow {
+  right: 10px; 
+}
+
+.prevArrow {
+  left: 10px;
+}
