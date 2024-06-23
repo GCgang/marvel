@@ -21,7 +21,7 @@
 
 .character-card__link {
   text-decoration: none;
-  color: inherit; 
+  color: inherit;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,7 +31,7 @@
 .character-card img {
   border-radius: 10px;
   width: 100%;
-  height: 60%;
+  height: 80%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
