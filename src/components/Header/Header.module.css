@@ -5,6 +5,7 @@
   width: 100%;
   background-color: transparent;
   top: 0;
+  z-index: 1000;
 }
 
 .header__logo__img {

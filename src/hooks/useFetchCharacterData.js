@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import {
   getCharacterDetailsUrl,
   getCharacterComicsUrl,
@@ -55,7 +57,6 @@ async function fetchCharacterStories(id) {
 
 export default function useFetchCharacterData(id) {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [characterData, setCharacterData] = useState({
     details: [],
     comics: [],
@@ -64,6 +65,7 @@ export default function useFetchCharacterData(id) {
     stories: []
   });
 
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchCharacterData = async () => {
       try {
@@ -82,7 +84,7 @@ export default function useFetchCharacterData(id) {
           stories,
         });
       } catch (err) {
-        setError(err.message);
+        navigate('/not-found', { state: { error: err.message } });
       } finally {
         setLoading(false);
       }
@@ -91,5 +93,5 @@ export default function useFetchCharacterData(id) {
     fetchCharacterData();
   }, [id]);
   
-  return {loading, error, characterData};
+  return {loading, characterData};
 }

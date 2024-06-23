@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { getCharactersListUrl } from '../utils/api'
+import { useNavigate } from 'react-router-dom';
+
 export default function useFetchCharacters() {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [characters, setCharacters] = useState([]);
+  const navigate = useNavigate();
 
   const fetchCharacters = async () => {
     try {
@@ -14,14 +16,15 @@ export default function useFetchCharacters() {
       const json = await response.json();
       setCharacters(json.data.results);
     } catch (err) {
-      setError(err.message);
+      navigate('/not-found', { state: { error: err.message } });
     } finally {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     fetchCharacters();
   }, []);
 
-  return { loading, error, characters };
+  return { loading, characters };
 }
