@@ -36,11 +36,6 @@
   transition: transform 0.3s ease;
 }
 
-.character-card h1 {
-  font-size: 1.2em;
-  margin: 10px 0;
-}
-
 .character-card .character-name {
   background-color: black;
   width: 100%;
@@ -49,4 +44,9 @@
 
 .character-card:hover .character-name {
   background-color: #ff0000;
+}
+
+.character-card h1 {
+  font-size: 1.2em;
+  margin: 10px 0;
 }

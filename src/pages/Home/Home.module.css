@@ -1,3 +1,8 @@
+.homeMain {
+  height: 30vh;
+  text-align: center;
+}
+
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -6,3 +11,4 @@
   gap: 10px;
   list-style-type: none;
 }
+

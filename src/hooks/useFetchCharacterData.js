@@ -79,7 +79,7 @@ export default function useFetchCharacterData(id) {
           comics,
           series,
           events,
-          stories
+          stories,
         });
       } catch (err) {
         setError(err.message);
