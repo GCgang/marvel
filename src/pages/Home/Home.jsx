@@ -9,7 +9,6 @@ export default function Home() {
   const { loading, characters } = useFetchCharacters();
 
   if (loading) {
-    // return <h1>Loading...</h1>;
     return <Loading />;
   }
 
