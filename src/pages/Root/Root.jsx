@@ -9,7 +9,6 @@ export default function Root() {
     <div className={styles.container}>
       <Header />
       <div className={styles.content}>
-        <Main />
         <Outlet />
       </div>
       <Footer />

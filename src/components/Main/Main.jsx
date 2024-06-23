@@ -1,11 +1,14 @@
 import styles from './Main.module.css'
 
-export default function Main({children}) {
+export default function Main({title, subtitle, backgroundImage, customStyles}) {
   return (
-    <main className={styles.main}>
+    <main
+      className={`${styles.main} ${customStyles}`} 
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+      >
       <div className={styles.main__contents}>
-        <h1 className={styles.main__title}>MARVEL CHARACTERS</h1>
-        <p className={styles.main__subtitle}>Get hooked on a hearty helping of heroes and villains from the humble House of Ideas!</p>
+        <h1 className={styles.main__title}>{title}</h1>
+        <p className={styles.main__subtitle}>{subtitle}</p>
       </div>
     </main>
   );

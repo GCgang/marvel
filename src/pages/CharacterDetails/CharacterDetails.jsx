@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 import useFetchCharacterData from '../../hooks/useFetchCharacterData';
+import Main from '../../components/Main/Main';
+import styles from './CharacterDetails.module.css';
 
 export default function CharacterDetails() {
   const {id} = useParams();
@@ -12,18 +14,14 @@ export default function CharacterDetails() {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  console.log(characterData);
-
   return (
     <div>
-      {details.length > 0 && (
-        <div key={details[0].id}>
-          <h1>{details[0].name}</h1>
-          {details[0].thumbnail && (
-            <img src={`${details[0].thumbnail.path}/portrait_xlarge.jpg`} alt={details[0].name} />
-          )}
-        </div>
-      )}
+      <Main
+        title={details[0].name}
+        backgroundImage={`${details[0].thumbnail.path}/landscape_incredible.jpg`}
+        subtitle={details[0].description}
+        customStyles={styles.characterDetailsMain}
+      />
 
       <h2>Comics</h2>
       <ul>
