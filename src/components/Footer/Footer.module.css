@@ -4,6 +4,7 @@
   align-items: center;
   background-color: #202020;
   color: white;
+  padding: 20px;
 }
 
 .footer__logo {
@@ -17,3 +18,12 @@
   list-style: none;
 }
 
+.follow__link a {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.follow__link a:hover {
+  color: #ff0000;
+}
