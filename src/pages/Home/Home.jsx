@@ -9,7 +9,7 @@ export default function Home() {
   const { loading, characters } = useFetchCharacters();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <h1>Loading...</h1>;
   }
 
   const charactersWithImages = filterWithImages(characters);

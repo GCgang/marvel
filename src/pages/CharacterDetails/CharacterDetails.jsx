@@ -10,7 +10,7 @@ export default function CharacterDetails() {
   const {details, comics, series, events} = characterData;
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <h1>Loading...</h1>;
   }
   return (
     <div>
