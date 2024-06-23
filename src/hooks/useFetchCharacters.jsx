@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function useFetchCharacters() {
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ export default function useFetchCharacters() {
         "https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters?limit=50&orderBy=modified&series=24229,1058,2023"
       );
       if (!response?.ok) {
-        return new Error(`HTTP Error!! status: ${response.status}`);
+        throw new Error(`HTTP Error!! status: ${response.status}`);
       }
       const json = await response.json();
       setCharacters(json.data.results);
