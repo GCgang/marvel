@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { getCharactersListUrl } from '../utils/api'
 export default function useFetchCharacters() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -7,11 +7,9 @@ export default function useFetchCharacters() {
 
   const fetchCharacters = async () => {
     try {
-      const response = await fetch(
-        "https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters?limit=50&orderBy=modified&series=24229,1058,2023"
-      );
+      const response = await fetch(getCharactersListUrl());
       if (!response?.ok) {
-        throw new Error(`HTTP Error!! status: ${response.status}`);
+        throw new Error(`Error: getCharactersListUrl() status: ${response.status}`);
       }
       const json = await response.json();
       setCharacters(json.data.results);
